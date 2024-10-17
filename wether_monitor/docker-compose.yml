@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: weather_db
+    ports:
+      - "5432:5432"
+
+  weather:
+    build: ./backend
+    environment:
+      - OPENWEATHER_API_KEY=your_api_key_here
+    depends_on:
+      - db

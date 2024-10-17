@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Contact Us</h2>
+        <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+<div id="successMessage"></div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    document.getElementById('successMessage').innerText = `${name} ! Your message has been sent.`;
+    this.reset();
+});
+</script>
+</body>
+</html>
